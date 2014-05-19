@@ -1,0 +1,620 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="Dulip Withanage" >
+        <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+        <title>Heidelberger Handschriften</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="css/navbar.css" rel="stylesheet">
+
+        <!-- Just for debugging purposes. Don't actually copy this line! -->
+        <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="container-fluid">
+
+            <!-- Static navbar -->
+            <div class="navbar navbar-default" role="navigation">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">Heidelberger Handschriften</a>
+
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <button type="button" class="btn btn-default" style="margin-top:10px"  onclick="$('#leftpane').removeClass();
+                                             $('#leftpane').addClass('col-md-3');
+                                             $('#leftpane').show();
+                                             $('#middlepane').removeClass();
+                                             $('#middlepane').addClass('col-md-6');
+                                             $('#middlepane').show();
+                                             $('#rightpane').removeClass();
+                                             $('#rightpane').addClass('col-md-3');
+                                             $('#rightpane').show();">
+                                    <span class="glyphicon glyphicon-th-list"></span>
+                                    <span class="glyphicon glyphicon-picture"></span>
+                                    <span class="glyphicon glyphicon-list-alt"></span>
+                                </button>
+                                <button type="button" class="btn btn-default" style="margin-top:10px"  onclick=";
+                             $('#leftpane').removeClass();
+                             $('#leftpane').addClass('col-md-3');
+                             $('#leftpane').show();
+                             $('#middlepane').removeClass();
+                             $('#middlepane').addClass('col-md-9');
+                             $('#middlepane').show();
+                             $('#rightpane').hide();
+                             $('#rightpane').removeClass();">
+                                    <span class="glyphicon glyphicon-th-list"></span>
+                                    <span class="glyphicon glyphicon-picture"></span>
+                                </button>
+                                <button type="button" class="btn btn-default" style="margin-top:10px"   onclick="$('#leftpane').hide();
+                             $('#leftpane').removeClass();
+                             $('#middlepane').removeClass();
+                             $('#middlepane').addClass('col-md-12');
+                             $('#middlepane').show();
+                             $('#rightpane').hide();
+                             $('#rightpane').removeClass();">
+                                    <span class="glyphicon glyphicon-picture"></span>
+                                </button>
+
+                                <button type="button" class="btn btn-default" style="margin-top:10px"  onclick="$('#leftpane').hide();
+                             $('#leftpane').removeClass();
+                             $('#middlepane').removeClass();
+                             $('#middlepane').addClass('col-md-6');
+                             $('#middlepane').show();
+                             $('#rightpane').removeClass();
+                             $('#rightpane').addClass('col-md-6');
+                             $('#rightpane').show();">
+                                    <span class="glyphicon glyphicon-picture"></span>
+                                    <span class="glyphicon glyphicon-list-alt"></span>
+                                </button>
+
+                                <button type="button" class="btn btn-default" style="margin-top:10px" onclick="$('#leftpane').hide();
+                             $('#leftpane').removeClass();
+                             $('#middlepane').hide();
+                             $('#middlepane').removeClass();
+                             $('#rightpane').removeClass();
+                             $('#rightpane').addClass('col-md-12');
+                             $('#rightpane').show();">
+                                    <span class="glyphicon glyphicon-list-alt"></span>
+                                </button>
+
+                            </li>
+
+                            <li><a href="./" data-toggle="modal" data-target="#myModal">Login</a></li>
+                            <li><img src="http://www.ub.uni-heidelberg.de/nav4/grafik/layout/header_ub_hd.gif"/></li>
+
+                        </ul>
+                    </div><!--/.nav-collapse -->
+                </div><!--/.container-fluid -->
+            </div>
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel">Login Window</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal" role="form">
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                                    <div class="col-sm-10">
+                                        <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox"> Remember me
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <button type="submit" class="btn btn-default">Sign in</button>
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Main component for a primary marketing message or call to action -->
+
+
+
+
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-md-3" id="leftpane"><div class="bs-example bs-example-tabs">
+                            <ul id="myTab" class="nav nav-tabs">
+                                <div class="jumbotron">
+                                    <div>
+                                        <div>
+                                            <b>Lehmann, Johann Gottlob <a href="http://katalog.ub.uni-heidelberg.de/cgi-bin/indexinfo.cgi?gnd=119501317" target="_blank">
+                                                    <span class="glyphicon glyphicon-info-sign"></span></a></b><br>
+                                            Versuch einer Geschichte von Flötz-Gebürgen: betreffend deren Entstehung, Lage, darinne befindliche Metallen, Mineralien und Foßilien ...
+                                        </div>
+                                        <div class="floatbox" style="margin: 0 0 0.5em 0;">
+                                            <div class="float_left" style="margin: 0 1.5em 0.5em 0;">Berlin, 1756
+                                            </div>
+
+                                            <div style="text-align:right;">	Seite:&nbsp;I		</div>
+                                        </div>
+
+                                        <div>
+                                            <form action="http://digi.ub.uni-heidelberg.de/cgi-bin/digi-downloadPdf.fcgi" method="GET">
+                                                <input type="hidden" name="projectname" value="lehmann1756">
+                                                <input class="submit" type="submit" value="PDF-Download">
+
+                                                <div style="text-align:right; font-size:0.8em;">
+                                                    <input type="radio" name="zoom" value="1" checked="">normal, 63&nbsp;MB<br>
+                                                    <input type="radio" name="zoom" value="4">groß, 203&nbsp;MB
+                                                    <!--(PDF,&nbsp;63&nbsp;MB)-->
+                                                </div>
+                                            </form>
+                                        </div><!--  -->
+
+                                        <a href="http://katalog.ub.uni-heidelberg.de/cgi-bin/search.cgi?query=si:26260390X+-(teil:ezblf)&amp;pos=1">
+                                            Bibliographische Information</a><br>
+                                        <a href="http://digi.ub.uni-heidelberg.de/diglit/lehmann1756?sid=f9c17301b1a9cc8950422842224ac122">
+                                            Startseite des Bandes</a><br>
+
+                                        <a href="http://geologie-digital.uni-hd.de">Sammlung</a><br>
+                                        <div><p></p>
+                                        </div>
+                                        <div>
+                                            <div class="input-group">
+
+                                                <input type="text" class="form-control" placeholder="Sprung zur Seite">
+                                                <span class="input-group-btn">
+                                                    <button class="btn btn-default" type="button">OK</button>
+                                                </span>
+                                            </div><!-- /input-group -->
+                                        </div><!-- /.col-lg-6 -->
+
+
+                                    </div>
+                                </div>
+                                <!-- ------------------------------------------------------->
+                                <li class=""><a href="#innhaltsverz" data-toggle="tab">Inhaltsverz.</a></li>
+                                <li class="dropdown active">
+                                    <a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown">Volltext Suche <b class="caret"></b></a>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
+                                        <li class="active"><a href="#dropdown1" tabindex="-1" data-toggle="tab">Auswahl1</a></li>
+                                        <li class=""><a href="#dropdown2" tabindex="-1" data-toggle="tab">Auswahl 2</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <div id="myTabContent" class="tab-content">
+
+                                <div class="tab-pane fade active in " id="innhaltsverz">
+                                    <ol class="list-unstyled">
+                                        <ul class="struct_level0" id="struct_level0">
+                                            <li><a id="navbox_current" class="struct_current" href="http://digi.ub.uni-heidelberg.de/diglit/lehmann1756/0001?sid=f9c17301b1a9cc8950422842224ac122">	<span style="color:#555"></span>	Titelblatt </a>
+                                            </li>
+                                            <li><a href="http://digi.ub.uni-heidelberg.de/diglit/lehmann1756/0002?sid=f9c17301b1a9cc8950422842224ac122">	<span style="color:#555"></span>	Widmung </a>
+                                            </li>
+                                            <li><a href="http://digi.ub.uni-heidelberg.de/diglit/lehmann1756/0003?sid=f9c17301b1a9cc8950422842224ac122">	<span style="color:#555"></span>	Vorrede </a>
+
+                                        </ul>
+                                    </ol>
+
+                                </div>
+
+
+                                <!--------------------------------------------------- -->
+                                <div class="tab-pane fade" id="dropdown1">
+                                    <p>test</p>
+                                </div>
+                                <div class="tab-pane fade" id="dropdown2">
+                                    <p>sdsssssssssss</p>
+                                </div>
+                            </div>
+                        </div>		</div>
+                    <!--------------------------------------------------- -->
+                    <div class="col-md-7" id="middlepane">
+
+
+                        <div class="btn-toolbar" role="toolbar">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-fast-backward"></span></button>
+                                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-backward"></span></button>
+                                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-forward"></span></button>
+                                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-fast-forward"></span></button>
+                                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-minus-sign"></span></button>
+                                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus-sign"></span></button>
+                                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-repeat"></span></button>
+                                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-repeat icon-rotate icon-flipped"></span></button>
+                                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-print"></span></button>
+                                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-shopping-cart"></span></button>
+                                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-envelope"></span></button>
+                                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-resize-small"></span></button>
+                                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-resize-full"></span></button>
+                                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-new-window"></span></button>
+
+                            </div>
+                        </div>
+                        <!---trennung-->
+                        <div><p></p></div>
+
+                        <!--btn-toolbar-->
+                        <div class="container-fluid">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#id1" data-toggle="tab">Seitenansicht</a></li>
+
+                                <li><a href="#id3" data-toggle="tab">Vorschau</a></li>
+                                <li><a href="#id2" data-toggle="tab">Vollansicht</a></li>
+                            </ul>
+
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="id1">
+                                    <div class="bs-full">
+                                        <div class="row">
+                                            <div style='overflow:auto;'>
+                                                <a href="#" class="thumbnail">
+                                                    <img  src="http://digi.ub.uni-heidelberg.de/diglitData/image/schramm1735/1/030a.jpg" style='display: inline-block;' onclick="$('#collapseThree').collapse('show');
+                  $('#collapseOne').collapse('hide');">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+
+                                <div class="tab-pane" id="id2">
+
+                                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                                        <!-- Indicators -->
+                                        <ol class="carousel-indicators">
+                                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                                        </ol>
+
+                                        <!-- Wrapper for slides -->
+                                        <div class="carousel-inner">
+                                            <div class="item active">
+                                                <img src="http://digi.ub.uni-heidelberg.de/diglitData/image/codheidnf9/1/000_A_Vorderdeckel.jpg" alt="...">
+
+                                                <div class="carousel-caption">
+                                                    My image
+                                                </div>
+                                            </div>
+
+                                            <div class="item ">
+                                                <img src="http://digi.ub.uni-heidelberg.de/diglitData/image/feldztgchkam1917bis1918/1/461.jpg" alt="...">
+
+                                                <div class="carousel-caption">
+                                                    My image
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <!-- Controls -->
+                                        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                                            <span class="glyphicon glyphicon-chevron-left"></span>
+                                        </a>
+                                        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                                            <span class="glyphicon glyphicon-chevron-right"></span>
+                                        </a>
+                                    </div>
+
+
+                                </div>
+                                <!-- tab2-->
+                                <div class="tab-pane" id="id3">
+
+                                    <div><p></p></div>
+                                    <div class="bs-vorschau">
+                                        <div class="row">
+                                            <div class="col-xs-6 col-md-3">
+                                                <a href="#" class="thumbnail">
+                                                    <img data-src="holder.js/100%x180" alt="100%x180" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNzEiIGhlaWdodD0iMTgwIj48cmVjdCB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgZmlsbD0iI2VlZSI+PC9yZWN0Pjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9Ijg1LjUiIHk9IjkwIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+MTcxeDE4MDwvdGV4dD48L3N2Zz4=" style="height: 180px; width: 100%; display: block;">
+                                                </a>
+                                            </div>
+                                            <div class="col-xs-6 col-md-3">
+                                                <a href="#" class="thumbnail">
+                                                    <img data-src="holder.js/100%x180" alt="100%x180" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNzEiIGhlaWdodD0iMTgwIj48cmVjdCB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgZmlsbD0iI2VlZSI+PC9yZWN0Pjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9Ijg1LjUiIHk9IjkwIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+MTcxeDE4MDwvdGV4dD48L3N2Zz4=" style="height: 180px; width: 100%; display: block;">
+                                                </a>
+                                            </div>
+                                            <div class="col-xs-6 col-md-3">
+                                                <a href="#" class="thumbnail">
+                                                    <img data-src="holder.js/100%x180" alt="100%x180" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNzEiIGhlaWdodD0iMTgwIj48cmVjdCB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgZmlsbD0iI2VlZSI+PC9yZWN0Pjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9Ijg1LjUiIHk9IjkwIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+MTcxeDE4MDwvdGV4dD48L3N2Zz4=" style="height: 180px; width: 100%; display: block;">
+                                                </a>
+                                            </div>
+                                            <div class="col-xs-6 col-md-3">
+                                                <a href="#" class="thumbnail">
+                                                    <img data-src="holder.js/100%x180" alt="100%x180" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNzEiIGhlaWdodD0iMTgwIj48cmVjdCB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgZmlsbD0iI2VlZSI+PC9yZWN0Pjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9Ijg1LjUiIHk9IjkwIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+MTcxeDE4MDwvdGV4dD48L3N2Zz4=" style="height: 180px; width: 100%; display: block;">
+                                                </a>
+                                            </div>
+                                            <div class="col-xs-6 col-md-3">
+                                                <a href="#" class="thumbnail">
+                                                    <img data-src="holder.js/100%x180" alt="100%x180" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNzEiIGhlaWdodD0iMTgwIj48cmVjdCB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgZmlsbD0iI2VlZSI+PC9yZWN0Pjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9Ijg1LjUiIHk9IjkwIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+MTcxeDE4MDwvdGV4dD48L3N2Zz4=" style="height: 180px; width: 100%; display: block;">
+                                                </a>
+                                            </div>
+                                            <div class="col-xs-6 col-md-3">
+                                                <a href="#" class="thumbnail">
+                                                    <img data-src="holder.js/100%x180" alt="100%x180" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNzEiIGhlaWdodD0iMTgwIj48cmVjdCB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgZmlsbD0iI2VlZSI+PC9yZWN0Pjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9Ijg1LjUiIHk9IjkwIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+MTcxeDE4MDwvdGV4dD48L3N2Zz4=" style="height: 180px; width: 100%; display: block;">
+                                                </a>
+                                            </div>
+                                            <div class="col-xs-6 col-md-3">
+                                                <a href="#" class="thumbnail">
+                                                    <img data-src="holder.js/100%x180" alt="100%x180" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNzEiIGhlaWdodD0iMTgwIj48cmVjdCB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgZmlsbD0iI2VlZSI+PC9yZWN0Pjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9Ijg1LjUiIHk9IjkwIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+MTcxeDE4MDwvdGV4dD48L3N2Zz4=" style="height: 180px; width: 100%; display: block;">
+                                                </a>
+                                            </div>
+                                            <div class="col-xs-6 col-md-3">
+                                                <a href="#" class="thumbnail">
+                                                    <img data-src="holder.js/100%x180" alt="100%x180" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNzEiIGhlaWdodD0iMTgwIj48cmVjdCB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgZmlsbD0iI2VlZSI+PC9yZWN0Pjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9Ijg1LjUiIHk9IjkwIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+MTcxeDE4MDwvdGV4dD48L3N2Zz4=" style="height: 180px; width: 100%; display: block;">
+                                                </a>
+                                            </div>
+                                            <div class="col-xs-6 col-md-3">
+                                                <a href="#" class="thumbnail">
+                                                    <img data-src="holder.js/100%x180" alt="100%x180" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNzEiIGhlaWdodD0iMTgwIj48cmVjdCB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgZmlsbD0iI2VlZSI+PC9yZWN0Pjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9Ijg1LjUiIHk9IjkwIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+MTcxeDE4MDwvdGV4dD48L3N2Zz4=" style="height: 180px; width: 100%; display: block;">
+                                                </a>
+                                            </div>
+                                            <div class="col-xs-6 col-md-3">
+                                                <a href="#" class="thumbnail">
+                                                    <img data-src="holder.js/100%x180" alt="100%x180" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNzEiIGhlaWdodD0iMTgwIj48cmVjdCB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgZmlsbD0iI2VlZSI+PC9yZWN0Pjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9Ijg1LjUiIHk9IjkwIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+MTcxeDE4MDwvdGV4dD48L3N2Zz4=" style="height: 180px; width: 100%; display: block;">
+                                                </a>
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+
+                                    <!---image vorschu -->
+
+                                </div>
+
+                            </div>
+
+
+
+
+
+
+                        </div>
+
+                        <!---nav nav-tabs-->
+
+                    </div>
+                    <!--------------------------------------------------- -->
+
+                    <div class="col-md-2" id="rightpane">
+                        <button class="btn btn-primary btn-mi" data-toggle="modal" data-target="#myAnnotation">
+                            Add annotation
+                        </button>
+
+
+                        <!- --->
+
+
+                        <div class="modal fade"  id="myAnnotation" tabindex="-1" role="dialog" aria-labelledby="myAnnotationLabel" aria-hidden="true">
+                            <div class="modal-dialog" style="width:80%" >
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                        <h4 class="modal-title" id="myAnnotationLabel">Addd annotation</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form class="form-horizontal" role="form">
+
+                                            <div class="form-group">
+
+                                                <div class="col-sm-10">
+                                                    <label for="inputtext" class="col-sm-2 control-label">Description</label>
+                                                    <div class="col-sm-10">
+                                                        <textarea class="form-control"></textarea>    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                                                <div class="col-sm-6">
+                                                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="col-sm-offset-2 col-sm-10">
+                                                    <button type="submit" class="btn btn-default">Save</button>
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+                        <div><p></p></div>
+
+                        <!---annotation view---->
+
+                        <div class="panel-group" id="accordion">
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                            Annotation  #1  <span class="badge pull-right">3</span>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseOne" class="panel-collapse collapse in">
+                                    <div class="panel-body">
+                                        <div class="bs-example">
+                                            <ul class="media-list">
+                                                <li class="media">
+                                                    <a class="pull-left" href="#">
+                                                        <img class="media-object" data-src="holder.js/24x24" alt="24x24" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjZWVlIj48L3JlY3Q+PHRleHQgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iMzIiIHk9IjMyIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9zdmc+" style="width: 24px; height: 24px;">
+                                                    </a>
+                                                    <div class="media-body">
+                                                        <h5 class="media-heading"><b>Titel</b></h5>
+                                                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo.  Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo.
+                                                        <!-- Nested media object -->
+                                                        <div class="media">
+                                                            <a class="pull-left" href="#">
+                                                                <img class="media-object" data-src="holder.js/24x24" alt="24x24" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjZWVlIj48L3JlY3Q+PHRleHQgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iMzIiIHk9IjMyIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9zdmc+" style="width: 24px; height: 24px;">
+                                                            </a>
+                                                            <div class="media-body">
+                                                                <h5 class="media-heading"><b>Titel </b></h5>
+                                                                tempus viverra turpis.
+                                                                <!-- Nested media object -->
+                                                                <div class="media">
+                                                                    <a class="pull-left" href="#">
+                                                                        <img class="media-object" data-src="holder.js/24x24" alt="24x24" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjZWVlIj48L3JlY3Q+PHRleHQgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iMzIiIHk9IjMyIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9zdmc+" style="width: 24px; height: 24px;">
+                                                                    </a>
+                                                                    <div class="media-body">
+                                                                        <h5 class="media-heading"><b>Titel </b></h5>
+                                                                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                </li>
+
+
+                                            </ul>
+                                        </div>
+                                        <!--bs-exampe -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel ">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                                            Annotation  #2   <span class="badge pull-right">42</span>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseTwo" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <div class="bs-example">
+                                            <ul class="media-list">
+                                                <li class="media">
+                                                    <a class="pull-left" href="#">
+                                                        <img class="media-object" data-src="holder.js/24x24" alt="24x24" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjZWVlIj48L3JlY3Q+PHRleHQgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iMzIiIHk9IjMyIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9zdmc+" style="width: 24px; height: 24px;">
+                                                    </a>
+                                                    <div class="media-body">
+                                                        <h5 class="media-heading"><b>Titel</b></h5>
+                                                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo.  Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo.
+                                                        <!-- Nested media object -->
+                                                        <div class="media">
+                                                            <a class="pull-left" href="#">
+                                                                <img class="media-object" data-src="holder.js/24x24" alt="24x24" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjZWVlIj48L3JlY3Q+PHRleHQgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iMzIiIHk9IjMyIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9zdmc+" style="width: 24px; height: 24px;">
+                                                            </a>
+                                                            <div class="media-body">
+                                                                <h5 class="media-heading"><b>Titel </b></h5>
+                                                                tempus viverra turpis.
+                                                                <!-- Nested media object -->
+                                                                <div class="media">
+                                                                    <a class="pull-left" href="#">
+                                                                        <img class="media-object" data-src="holder.js/24x24" alt="24x24" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjZWVlIj48L3JlY3Q+PHRleHQgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iMzIiIHk9IjMyIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9zdmc+" style="width: 24px; height: 24px;">
+                                                                    </a>
+                                                                    <div class="media-body">
+                                                                        <h5 class="media-heading"><b>Titel </b></h5>
+                                                                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                </li>
+
+
+                                            </ul>
+                                        </div>
+                                        <!--bs-exampe -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                                            Annotation  #3
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseThree" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- accordion-->
+                    </div>
+
+
+                    <!-- Bootstrap core JavaScript
+                    ================================================== -->
+                    <!-- Placed at the end of the document so the pages load faster -->
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+                    <script src="js/bootstrap.min.js"></script>
+                    </body>
+                    </html>
+
