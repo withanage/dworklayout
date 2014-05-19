@@ -27,3 +27,9 @@ body {
     transition: 0.3s ease-in-out left;
 }
 
+
+/*panzoom*/
+.panzoom-parent { border: 2px solid #333; }
+.panzoom-parent .panzoom { border: 2px dashed #666; }
+
+

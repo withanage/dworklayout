@@ -15,7 +15,7 @@
         <link href="css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Custom styles for this template -->
-        <link href="css/navbar.css" rel="stylesheet">
+        <link href="css/local-extensions.css" rel="stylesheet">
 
         <!-- Just for debugging purposes. Don't actually copy this line! -->
         <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -25,6 +25,10 @@
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/panzoom/jquery.panzoom.min.js"></script>
+ 
     </head>
 
     <body>
@@ -51,59 +55,59 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li>
                                 <button type="button" class="btn btn-default" style="margin-top:10px"  onclick="$('#leftpane').removeClass();
-                                             $('#leftpane').addClass('col-md-3');
-                                             $('#leftpane').show();
-                                             $('#middlepane').removeClass();
-                                             $('#middlepane').addClass('col-md-6');
-                                             $('#middlepane').show();
-                                             $('#rightpane').removeClass();
-                                             $('#rightpane').addClass('col-md-3');
-                                             $('#rightpane').show();">
+                                        $('#leftpane').addClass('col-md-3');
+                                        $('#leftpane').show();
+                                        $('#middlepane').removeClass();
+                                        $('#middlepane').addClass('col-md-6');
+                                        $('#middlepane').show();
+                                        $('#rightpane').removeClass();
+                                        $('#rightpane').addClass('col-md-3');
+                                        $('#rightpane').show();">
                                     <span class="glyphicon glyphicon-th-list"></span>
                                     <span class="glyphicon glyphicon-picture"></span>
                                     <span class="glyphicon glyphicon-list-alt"></span>
                                 </button>
                                 <button type="button" class="btn btn-default" style="margin-top:10px"  onclick=";
-                             $('#leftpane').removeClass();
-                             $('#leftpane').addClass('col-md-3');
-                             $('#leftpane').show();
-                             $('#middlepane').removeClass();
-                             $('#middlepane').addClass('col-md-9');
-                             $('#middlepane').show();
-                             $('#rightpane').hide();
-                             $('#rightpane').removeClass();">
+                                        $('#leftpane').removeClass();
+                                        $('#leftpane').addClass('col-md-3');
+                                        $('#leftpane').show();
+                                        $('#middlepane').removeClass();
+                                        $('#middlepane').addClass('col-md-9');
+                                        $('#middlepane').show();
+                                        $('#rightpane').hide();
+                                        $('#rightpane').removeClass();">
                                     <span class="glyphicon glyphicon-th-list"></span>
                                     <span class="glyphicon glyphicon-picture"></span>
                                 </button>
                                 <button type="button" class="btn btn-default" style="margin-top:10px"   onclick="$('#leftpane').hide();
-                             $('#leftpane').removeClass();
-                             $('#middlepane').removeClass();
-                             $('#middlepane').addClass('col-md-12');
-                             $('#middlepane').show();
-                             $('#rightpane').hide();
-                             $('#rightpane').removeClass();">
+                                        $('#leftpane').removeClass();
+                                        $('#middlepane').removeClass();
+                                        $('#middlepane').addClass('col-md-12');
+                                        $('#middlepane').show();
+                                        $('#rightpane').hide();
+                                        $('#rightpane').removeClass();">
                                     <span class="glyphicon glyphicon-picture"></span>
                                 </button>
 
                                 <button type="button" class="btn btn-default" style="margin-top:10px"  onclick="$('#leftpane').hide();
-                             $('#leftpane').removeClass();
-                             $('#middlepane').removeClass();
-                             $('#middlepane').addClass('col-md-6');
-                             $('#middlepane').show();
-                             $('#rightpane').removeClass();
-                             $('#rightpane').addClass('col-md-6');
-                             $('#rightpane').show();">
+                                        $('#leftpane').removeClass();
+                                        $('#middlepane').removeClass();
+                                        $('#middlepane').addClass('col-md-6');
+                                        $('#middlepane').show();
+                                        $('#rightpane').removeClass();
+                                        $('#rightpane').addClass('col-md-6');
+                                        $('#rightpane').show();">
                                     <span class="glyphicon glyphicon-picture"></span>
                                     <span class="glyphicon glyphicon-list-alt"></span>
                                 </button>
 
                                 <button type="button" class="btn btn-default" style="margin-top:10px" onclick="$('#leftpane').hide();
-                             $('#leftpane').removeClass();
-                             $('#middlepane').hide();
-                             $('#middlepane').removeClass();
-                             $('#rightpane').removeClass();
-                             $('#rightpane').addClass('col-md-12');
-                             $('#rightpane').show();">
+                                        $('#leftpane').removeClass();
+                                        $('#middlepane').hide();
+                                        $('#middlepane').removeClass();
+                                        $('#rightpane').removeClass();
+                                        $('#rightpane').addClass('col-md-12');
+                                        $('#rightpane').show();">
                                     <span class="glyphicon glyphicon-list-alt"></span>
                                 </button>
 
@@ -180,7 +184,7 @@
                                         <div>
                                             <b>Lehmann, Johann Gottlob <a href="http://katalog.ub.uni-heidelberg.de/cgi-bin/indexinfo.cgi?gnd=119501317" target="_blank">
                                                     <span class="glyphicon glyphicon-info-sign"></span></a></b><br>
-                                            Versuch einer Geschichte von Flötz-Gebürgen: betreffend deren Entstehung, Lage, darinne befindliche Metallen, Mineralien und Foßilien ...
+                                            <p>Versuch einer Geschichte von Flötz-Gebürgen: betreffend deren Entstehung, Lage, darinne befindliche Metallen, Mineralien und Foßilien ...</p>
                                         </div>
                                         <div class="floatbox" style="margin: 0 0 0.5em 0;">
                                             <div class="float_left" style="margin: 0 1.5em 0.5em 0;">Berlin, 1756
@@ -301,10 +305,38 @@
                                     <div class="bs-full">
                                         <div class="row">
                                             <div style='overflow:auto;'>
-                                                <a href="#" class="thumbnail">
-                                                    <img  src="http://digi.ub.uni-heidelberg.de/diglitData/image/schramm1735/1/030a.jpg" style='display: inline-block;' onclick="$('#collapseThree').collapse('show');
-                  $('#collapseOne').collapse('hide');">
-                                                </a>
+
+
+                                                <section>
+                                                    <div class="btn-toolbar" role="toolbar"  >
+                                                        <div class="btn-group">
+                                                            <button type="button" class="zoom-in btn btn-default"><span class="glyphicon glyphicon-zoom-in"></span></button>
+                                                            <button type="button" class="zoom-out btn btn-default"><span class="glyphicon glyphicon-zoom-out"></span></button>
+                                                            <button type="button" class="reset btn btn-default"><span class="glyphicon glyphicon-fullscreen"></span></button>
+                                                            <input type="range" class="zoom-range">
+                                                        </div>
+                                                    </div>
+                                                    <div class="parent"  style="overflow: auto;">
+                                                        <div class="panzoom">
+                                                            <img  src="http://digi.ub.uni-heidelberg.de/diglitData/image/schramm1735/1/030a.jpg" style='display: inline-block;' onclick="$('#collapseThree').collapse('show');
+                                                                    $('#collapseOne').collapse('hide');" >
+                                                        </div>
+                                                    </div>
+
+                                                    <script>
+                                                        (function() {
+                                                            var $section = $('section').first();
+                                                            $section.find('.panzoom').panzoom({
+                                                                $zoomIn: $section.find(".zoom-in"),
+                                                                $zoomOut: $section.find(".zoom-out"),
+                                                                $zoomRange: $section.find(".zoom-range"),
+                                                                $reset: $section.find(".reset")
+                                                            });
+                                                        })();
+                                                    </script>
+                                                </section>
+
+
                                             </div>
                                         </div>
                                     </div>
@@ -613,8 +645,9 @@
                     <!-- Bootstrap core JavaScript
                     ================================================== -->
                     <!-- Placed at the end of the document so the pages load faster -->
-                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+                    
                     <script src="js/bootstrap.min.js"></script>
+
                     </body>
                     </html>
 
