@@ -26,9 +26,17 @@
           <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="js/panzoom/jquery.panzoom.min.js"></script>
- 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+        <style type="text/css">
+            div.slider { width:256px; margin:10px 0; background-color:#ccc; height:10px; position: relative; }
+            div.slider div.handle { width:10px; height:15px; background-color:#f00; cursor:move; position: relative; }
+            div#zoom_element { width:50px; height:50px; background:#2d86bd; position:relative; }
+        </style>
+
+
+
     </head>
 
     <body>
@@ -259,7 +267,7 @@
                                     <p>test</p>
                                 </div>
                                 <div class="tab-pane fade" id="dropdown2">
-                                    <p>sdsssssssssss</p>
+                                    <p>test</p>
                                 </div>
                             </div>
                         </div>		</div>
@@ -307,39 +315,101 @@
                                             <div style='overflow:auto;'>
 
 
-                                                <section>
-                                                    <div class="btn-toolbar" role="toolbar"  >
-                                                        <div class="btn-group">
-                                                            <button type="button" class="zoom-in btn btn-default"><span class="glyphicon glyphicon-zoom-in"></span></button>
-                                                            <button type="button" class="zoom-out btn btn-default"><span class="glyphicon glyphicon-zoom-out"></span></button>
-                                                            <button type="button" class="reset btn btn-default"><span class="glyphicon glyphicon-fullscreen"></span></button>
-                                                            <input type="range" class="zoom-range">
-                                                        </div>
-                                                    </div>
-                                                    <div class="parent"  style="overflow: auto;">
-                                                        <div class="panzoom">
-                                                            <img  src="http://digi.ub.uni-heidelberg.de/diglitData/image/schramm1735/1/030a.jpg" style='display: inline-block;' onclick="$('#collapseThree').collapse('show');
-                                                                    $('#collapseOne').collapse('hide');" >
-                                                        </div>
-                                                    </div>
 
-                                                    <script>
-                                                        (function() {
-                                                            var $section = $('section').first();
-                                                            $section.find('.panzoom').panzoom({
-                                                                $zoomIn: $section.find(".zoom-in"),
-                                                                $zoomOut: $section.find(".zoom-out"),
-                                                                $zoomRange: $section.find(".zoom-range"),
-                                                                $reset: $section.find(".reset")
-                                                            });
-                                                        })();
-                                                    </script>
-                                                </section>
+
+                                                <!--img  src="http://digi.ub.uni-heidelberg.de/diglitData/image/schramm1735/1/030a.jpg" style='display: inline-block;' onclick="$('#collapseThree').collapse('show');
+                                                                    $('#collapseOne').collapse('hide');" -->
+                                                <div style="height:10px"></div>
+
+
+                                                <div id="zoom_slider" class="" style="width: 200px"></div>
+                                                <div id="rotate_slider" class="ui-slider" style="width:200px"></div>
+
+                                                <span id="debug"></span>
+
+                                                <div id='img_div' style='position:relative; top:0px; left:0px; transform-origin:0 0'>
+                                                    <img id='img' src='http://digi.ub.uni-heidelberg.de/diglitData/image/cpg848/1/008r.jpg'>
+                                                </div>
+
+
+                                                <script type="text/javascript">
+
+                                                    var scale = 1, angle = 0;
+                                                    var zoom_slider = $('#zoom_slider'),
+                                                            rotate_slider = $('#rotate_slider'),
+                                                            img_div = $('#img_div');
+                                                    var img_zoomst = [{width: 587, height: 918, url: "http://digi.ub.uni-heidelberg.de/diglitData/image/cpg848/1/008r.jpg"},
+                                                        {width: 746, height: 1166, url: "http://digi.ub.uni-heidelberg.de/diglitData/image/cpg848/2/008r.jpg"},
+                                                        {width: 947, height: 1482, url: "http://digi.ub.uni-heidelberg.de/diglitData/image/cpg848/3/008r.jpg"},
+                                                        {width: 1192, height: 1864, url: "http://digi.ub.uni-heidelberg.de/diglitData/image/cpg848/4/008r.jpg"}];
+                                                    var img_width, img_height;
+
+                                                    function transform_str(scale, angle) {
+                                                        var f = 1.2599210499, transl = ",0,0";
+
+                                                        if (scale >= 0 && scale <= 3) {
+                                                            $('#img').attr("src", img_zoomst[scale].url);
+                                                            img_width = img_zoomst[scale].width;
+                                                            img_height = img_zoomst[scale].height;
+                                                            scale = 0;
+                                                        }
+                                                        else if (scale > 3) {
+                                                            scale -= 3;
+                                                        }
+
+                                                        if (angle == -1) {
+                                                            transl = ",0," + (img_width * Math.pow(f, scale)).toFixed(6);
+                                                        }
+                                                        if (angle == 1) {
+                                                            transl = "," + (img_height * Math.pow(f, scale)).toFixed(6) + ",0";
+                                                        }
+                                                        if (angle == 2) {
+                                                            transl = "," + (img_width * Math.pow(f, scale)).toFixed(6) + "," + (img_height * Math.pow(f, scale)).toFixed(6);
+                                                        }
+
+                                                        return "matrix("
+                                                                + (+Math.cos(-angle * Math.PI / 2) * Math.pow(f, scale)).toFixed(6) + ","
+                                                                + (-Math.sin(-angle * Math.PI / 2) * Math.pow(f, scale)).toFixed(6) + ","
+                                                                + (+Math.sin(-angle * Math.PI / 2) * Math.pow(f, scale)).toFixed(6) + ","
+                                                                + (+Math.cos(-angle * Math.PI / 2) * Math.pow(f, scale)).toFixed(6)
+                                                                + transl + ")";
+                                                    }
+
+                                                    $("#zoom_slider").slider({
+                                                        value: 0,
+                                                        min: -10,
+                                                        max: 6,
+                                                        step: 1,
+                                                        slide: function(event, ui) {
+                                                            scale = Math.round(ui.value);
+                                                            //			$('#debug').html(scale+" "+angle);
+                                                            img_div.css("transform", transform_str(scale, angle));
+                                                        }
+                                                    });
+
+                                                    $("#rotate_slider").slider({
+                                                        value: 0,
+                                                        min: -1,
+                                                        max: 2,
+                                                        step: 1,
+                                                        slide: function(event, ui) {
+                                                            angle = Math.round(ui.value);
+                                                            //			$('#debug').html(scale+" "+angle);
+                                                            img_div.css("transform", transform_str(scale, angle));
+                                                        }
+                                                    });
+
+
+
+                                                </script>
 
 
                                             </div>
                                         </div>
                                     </div>
+
+
+
 
 
                                 </div>
@@ -645,7 +715,7 @@
                     <!-- Bootstrap core JavaScript
                     ================================================== -->
                     <!-- Placed at the end of the document so the pages load faster -->
-                    
+
                     <script src="js/bootstrap.min.js"></script>
 
                     </body>
