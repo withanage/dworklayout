@@ -53,3 +53,5 @@ coverage.xml
 docs/_build/
 
 /dworklayout/nbproject/private/
+/dworklayout/public_html/css/navbar.css~
+/dworklayout/public_html/panzoom.test.html

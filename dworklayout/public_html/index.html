@@ -29,12 +29,6 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
-        <style type="text/css">
-            div.slider { width:256px; margin:10px 0; background-color:#ccc; height:10px; position: relative; }
-            div.slider div.handle { width:10px; height:15px; background-color:#f00; cursor:move; position: relative; }
-            div#zoom_element { width:50px; height:50px; background:#2d86bd; position:relative; }
-        </style>
-
 
 
     </head>
@@ -314,20 +308,25 @@
                                         <div class="row">
                                             <div style='overflow:auto;'>
 
-
-
-
                                                 <!--img  src="http://digi.ub.uni-heidelberg.de/diglitData/image/schramm1735/1/030a.jpg" style='display: inline-block;' onclick="$('#collapseThree').collapse('show');
                                                                     $('#collapseOne').collapse('hide');" -->
-                                                <div style="height:10px"></div>
+
+                                                <div id="wrap" style="position:relative; width:100%">
+                                                    <div style="height:20px"></div>
+                                                    <div id="ex1" class="navigation-box"  style="width:20px"> </div>
+                                                    <div id="zoom_slider" class="navigation-box" style="width:200px"></div>
+                                                    <div id="ex1" class="navigation-box"  style="width:30px ">&nbsp;</div>
+                                                    <div id="ex1" class="navigation-box"  style="width:50px"></div>
+                                                    <div id="rotate_slider" class="navigation-box" style="width:200px"></div>
+
+                                                </div>
 
 
-                                                <div id="zoom_slider" class="" style="width: 200px"></div>
-                                                <div id="rotate_slider" class="ui-slider" style="width:200px"></div>
+                                                <div style="height:20px"></div>
 
-                                                <span id="debug"></span>
 
-                                                <div id='img_div' style='position:relative; top:0px; left:0px; transform-origin:0 0'>
+
+                                                <div id='img_div' style='position:relative; top:0px; left:0px; transform-origin:0 0 ;overflow:auto;'>
                                                     <img id='img' src='http://digi.ub.uni-heidelberg.de/diglitData/image/cpg848/1/008r.jpg'>
                                                 </div>
 

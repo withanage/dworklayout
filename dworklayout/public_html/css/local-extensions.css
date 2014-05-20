@@ -1,16 +1,16 @@
 body {
-  padding-top: 20px;
-  padding-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .navbar {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .container-fluid {
-  margin-right: auto;
-  margin-left: auto;
-  max-width: 100%; /* or 950px */
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 100%; /* or 950px */
 }
 .icon-flipped {
     transform: scaleX(-1);
@@ -30,5 +30,19 @@ body {
 
 
 #ex1Slider .slider-selection {
-	background: #BABABA;
+    background: #BABABA;
 }
+
+
+
+.navigation-box{
+    display: block;
+    float:left; 
+    /* width:200px;
+    */
+}
+div.slider { width:256px; margin:10px 0; background-color:#ccc; height:10px; position: relative; }
+div.slider div.handle { width:10px; height:15px; background-color:#f00; cursor:move; position: relative; }
+div#zoom_element { width:50px; height:50px; background:#2d86bd; position:relative; }
+
+
