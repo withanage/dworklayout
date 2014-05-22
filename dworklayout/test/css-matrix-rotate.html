@@ -65,9 +65,8 @@
 		max: 6,
 		step: 1,
 		slide: function( event, ui ) {
-			scale=Math.round(ui.value);
-//			$('#debug').html(scale+" "+angle);
-			img_div.css("transform", transform_str(scale, angle));
+                scale=Math.round(ui.value);
+                img_div.css("transform", transform_str(scale, angle));
 		}
 	});
 
@@ -77,9 +76,8 @@
 		max: 2,
 		step: 1,
 		slide: function( event, ui ) {
-			angle=Math.round(ui.value);
-//			$('#debug').html(scale+" "+angle);
-			img_div.css("transform", transform_str(scale, angle));
+                angle=Math.round(ui.value);
+                img_div.css("transform", transform_str(scale, angle));
 		}
 	});
 

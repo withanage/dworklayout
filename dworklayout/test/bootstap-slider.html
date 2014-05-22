@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Examples for bootstrap-slider plugin">
+        <meta name="author" content="">
+       <title>Slider for Bootstrap Examples Page</title>
+       <!-- core CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/slider.css" rel="stylesheet">
+       <!-- Custom styles for this template -->
+  </head>
+   <body>
+       <div class="container">
+<div class="examples">
+               <div class='slider-example'>
+                    <div class="well">
+                        <input id="zoom_slider" type="text" data-slider-min="-6" data-slider-max="10" data-slider-step="1" data-slider-value="0"/>
+                        <span id="zoom_sliderCurrentSliderValLabel">Zoom level: <span id="zoom_sliderSliderVal">3</span></span>
+                        <span  class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <input id="rotate_slider" type="text" data-slider-min="-1" data-slider-max="2" data-slider-step="1" data-slider-value="0"/>
+                        <span id="rotate_sliderCurrentSliderValLabel">Rotate: <span id="rotate_sliderSliderVal">0</span></span>
+                    </div>
+               </div>
+           </div>
+       </div> <!-- /examples -->
+      <div id='img_div' style='position:fixed; top:200px; left:200px; transform-origin:0 0'>
+            <img id='img' src='http://digi.ub.uni-heidelberg.de/diglitData/image/cpg848/1/008r.jpg'>
+        </div>
+   </div> <!-- /container -->
+   <!-- core JavaScript
+    ================================================== -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type='text/javascript' src="js/bootstrap-slider.js"></script>
+    <script type='text/javascript'>
+            $(document).ready(function() {
+                /* Example 1 */
+                $('#ex1').slider({
+                    formater: function(value) {
+                        return 'Current value: ' + value;
+                    }
+                });
+               /* Example 2 */
+                $("#ex2").slider({});
+               /* Example 3 */
+                var RGBChange = function() {
+                    $('#RGB').css('background', 'rgb(' + r.getValue() + ',' + g.getValue() + ',' + b.getValue() + ')')
+                };
+               var r = $('#R').slider()
+                        .on('slide', RGBChange)
+                        .data('slider');
+                var g = $('#G').slider()
+                        .on('slide', RGBChange)
+                        .data('slider');
+                var b = $('#B').slider()
+                        .on('slide', RGBChange)
+                        .data('slider');
+               /* Example 4 */
+                $("#ex4").slider({
+                    reversed: true
+                });
+               /* Example 5 */
+                $("#ex5").slider();
+                $("#destroyEx5Slider").click(function() {
+                    $("#ex5").slider('destroy');
+                });
+               /* Example 6 */
+              /* Example 7 */
+                $("#ex7").slider();
+                $("#ex7-enabled").click(function() {
+                    if (this.checked) {
+                        $("#ex7").slider("enable");
+                    }
+                    else {
+                        $("#ex7").slider("disable");
+                    }
+                });
+               /* Example 8 */
+                $("#ex8").slider({
+                    tooltip: 'always'
+                });
+               /* Example 9 */
+                $("#ex9").slider({
+                    step: 0.01,
+                    value: 8.115
+                });
+            });
+    </script>
+    
+   <script type="text/javascript">
+           var scale = 1, angle = 0;
+            var zoom_slider = $('#zoom_slider'),
+                    rotate_slider = $('#rotate_slider'),
+                    img_div = $('#img_div');
+            var img_zoomst = [{width: 587, height: 918, url: "http://digi.ub.uni-heidelberg.de/diglitData/image/cpg848/1/008r.jpg"},
+                {width: 746, height: 1166, url: "http://digi.ub.uni-heidelberg.de/diglitData/image/cpg848/2/008r.jpg"},
+                {width: 947, height: 1482, url: "http://digi.ub.uni-heidelberg.de/diglitData/image/cpg848/3/008r.jpg"},
+                {width: 1192, height: 1864, url: "http://digi.ub.uni-heidelberg.de/diglitData/image/cpg848/4/008r.jpg"}];
+            var img_width, img_height;
+           function transform_str(scale, angle) {
+                var f = 1.2599210499, transl = ",0,0";
+               if (scale >= 0 && scale <= 3) {
+                    $('#img').attr("src", img_zoomst[scale].url);
+                    img_width = img_zoomst[scale].width;
+                    img_height = img_zoomst[scale].height;
+                    scale = 0;
+                }
+                else if (scale > 3) {
+                    scale -= 3;
+                }
+               if (angle == -1) {
+                    transl = ",0," + (img_width * Math.pow(f, scale)).toFixed(6);
+                }
+                if (angle == 1) {
+                    transl = "," + (img_height * Math.pow(f, scale)).toFixed(6) + ",0";
+                }
+                if (angle == 2) {
+                    transl = "," + (img_width * Math.pow(f, scale)).toFixed(6) + "," + (img_height * Math.pow(f, scale)).toFixed(6);
+                }
+               return "matrix("
+                        + (+Math.cos(-angle * Math.PI / 2) * Math.pow(f, scale)).toFixed(6) + ","
+                        + (-Math.sin(-angle * Math.PI / 2) * Math.pow(f, scale)).toFixed(6) + ","
+                        + (+Math.sin(-angle * Math.PI / 2) * Math.pow(f, scale)).toFixed(6) + ","
+                        + (+Math.cos(-angle * Math.PI / 2) * Math.pow(f, scale)).toFixed(6)
+                        + transl + ")";
+            }
+           $("#zoom_slider").slider();
+            $("#zoom_slider").on('slide', function(slideEvt) {
+               $("#zoom_sliderSliderVal").text(slideEvt.value);
+                scale = Math.round(slideEvt.value);
+            img_div.css("transform", transform_str(scale, angle));
+             });
+              $("#rotate_slider").slider();
+            $("#rotate_slider").on('slide', function(slideEvt) {
+               $("#rotate_sliderSliderVal").text(slideEvt.value);
+                angle = Math.round(slideEvt.value);
+            img_div.css("transform", transform_str(scale, angle));
+             });
+      </script>
+    <!-- Placed at the end of the document so the pages load faster -->
+</body>
+</html>
