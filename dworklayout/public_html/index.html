@@ -21,6 +21,7 @@
           <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+         <script src="js/workspace-settings.js"></script>
          <link href="css/slider.css" rel="stylesheet">
     </head>
     <body>
@@ -42,58 +43,23 @@
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <li>
-                                <button type="button" class="btn btn-default" style="margin-top:10px"  onclick="$('#leftpane').removeClass();
-                                        $('#leftpane').addClass('col-md-3');
-                                        $('#leftpane').show();
-                                        $('#middlepane').removeClass();
-                                        $('#middlepane').addClass('col-md-6');
-                                        $('#middlepane').show();
-                                        $('#rightpane').removeClass();
-                                        $('#rightpane').addClass('col-md-3');
-                                        $('#rightpane').show();">
+                                <button type="button" class="btn btn-default" style="margin-top:10px"  onclick="setView(true,true,true);">
                                     <span class="glyphicon glyphicon-th-list"></span>
                                     <span class="glyphicon glyphicon-picture"></span>
                                     <span class="glyphicon glyphicon-list-alt"></span>
                                 </button>
-                                <button type="button" class="btn btn-default" style="margin-top:10px"  onclick=";
-                                        $('#leftpane').removeClass();
-                                        $('#leftpane').addClass('col-md-3');
-                                        $('#leftpane').show();
-                                        $('#middlepane').removeClass();
-                                        $('#middlepane').addClass('col-md-9');
-                                        $('#middlepane').show();
-                                        $('#rightpane').hide();
-                                        $('#rightpane').removeClass();">
+                                <button type="button" class="btn btn-default" style="margin-top:10px"  onclick="setView(true,true,false);">
                                     <span class="glyphicon glyphicon-th-list"></span>
                                     <span class="glyphicon glyphicon-picture"></span>
                                 </button>
-                                <button type="button" class="btn btn-default" style="margin-top:10px"   onclick="$('#leftpane').hide();
-                                        $('#leftpane').removeClass();
-                                        $('#middlepane').removeClass();
-                                        $('#middlepane').addClass('col-md-12');
-                                        $('#middlepane').show();
-                                        $('#rightpane').hide();
-                                        $('#rightpane').removeClass();">
+                                <button type="button" class="btn btn-default" style="margin-top:10px"  onclick="setView(false,true,false);">
                                     <span class="glyphicon glyphicon-picture"></span>
                                 </button>
-                                <button type="button" class="btn btn-default" style="margin-top:10px"  onclick="$('#leftpane').hide();
-                                        $('#leftpane').removeClass();
-                                        $('#middlepane').removeClass();
-                                        $('#middlepane').addClass('col-md-6');
-                                        $('#middlepane').show();
-                                        $('#rightpane').removeClass();
-                                        $('#rightpane').addClass('col-md-6');
-                                        $('#rightpane').show();">
+                                <button type="button" class="btn btn-default" style="margin-top:10px"  onclick="setView(false,true,true);">
                                     <span class="glyphicon glyphicon-picture"></span>
                                     <span class="glyphicon glyphicon-list-alt"></span>
                                 </button>
-                                <button type="button" class="btn btn-default" style="margin-top:10px" onclick="$('#leftpane').hide();
-                                        $('#leftpane').removeClass();
-                                        $('#middlepane').hide();
-                                        $('#middlepane').removeClass();
-                                        $('#rightpane').removeClass();
-                                        $('#rightpane').addClass('col-md-12');
-                                        $('#rightpane').show();">
+                                <button type="button" class="btn btn-default" style="margin-top:10px" onclick="setView(false,false,true)">
                                     <span class="glyphicon glyphicon-list-alt"></span>
                                 </button>
                             </li>
@@ -530,56 +496,8 @@
                         </div>
                         <script type='text/javascript' src="js/bootstrap-slider.js"></script>
                         <script src="js/bootstrap.min.js"></script>
-                        <script type="text/javascript">
-                                    var scale = 1, angle = 0;
-                                    var zoom_slider = $('#zoom_slider'),
-                                            rotate_slider = $('#rotate_slider'),
-                                            img_div = $('#img_div');
-                                    var img_zoomst = [{width: 587, height: 918, url: "http://digi.ub.uni-heidelberg.de/diglitData/image/cpg848/1/008r.jpg"},
-                                        {width: 746, height: 1166, url: "http://digi.ub.uni-heidelberg.de/diglitData/image/cpg848/2/008r.jpg"},
-                                        {width: 947, height: 1482, url: "http://digi.ub.uni-heidelberg.de/diglitData/image/cpg848/3/008r.jpg"},
-                                        {width: 1192, height: 1864, url: "http://digi.ub.uni-heidelberg.de/diglitData/image/cpg848/4/008r.jpg"}];
-                                    var img_width, img_height;
-                                    function transform_str(scale, angle) {
-                                        var f = 1.2599210499, transl = ",0,0";
-                                        if (scale >= 0 && scale <= 3) {
-                                            $('#img').attr("src", img_zoomst[scale].url);
-                                            img_width = img_zoomst[scale].width;
-                                            img_height = img_zoomst[scale].height;
-                                            scale = 0;
-                                        }
-                                        else if (scale > 3) {
-                                            scale -= 3;
-                                        }
-                                        if (angle == -1) {
-                                            transl = ",0," + (img_width * Math.pow(f, scale)).toFixed(6);
-                                        }
-                                        if (angle == 1) {
-                                            transl = "," + (img_height * Math.pow(f, scale)).toFixed(6) + ",0";
-                                        }
-                                        if (angle == 2) {
-                                            transl = "," + (img_width * Math.pow(f, scale)).toFixed(6) + "," + (img_height * Math.pow(f, scale)).toFixed(6);
-                                        }
-                                        return "matrix("
-                                                + (+Math.cos(-angle * Math.PI / 2) * Math.pow(f, scale)).toFixed(6) + ","
-                                                + (-Math.sin(-angle * Math.PI / 2) * Math.pow(f, scale)).toFixed(6) + ","
-                                                + (+Math.sin(-angle * Math.PI / 2) * Math.pow(f, scale)).toFixed(6) + ","
-                                                + (+Math.cos(-angle * Math.PI / 2) * Math.pow(f, scale)).toFixed(6)
-                                                + transl + ")";
-                                    }
-                                    $("#zoom_slider").slider();
-                                    $("#zoom_slider").on('slide', function(slideEvt) {
-                                        $("#zoom_sliderSliderVal").text(slideEvt.value);
-                                        scale = Math.round(slideEvt.value);
-                                        img_div.css("transform", transform_str(scale, angle));
-                                    });
-                                    $("#rotate_slider").slider();
-                                    $("#rotate_slider").on('slide', function(slideEvt) {
-                                        $("#rotate_sliderSliderVal").text(slideEvt.value);
-                                        angle = Math.round(slideEvt.value);
-                                        img_div.css("transform", transform_str(scale, angle));
-                                    });
-                        </script>
+                          <script src="js/image-zoom.js"></script>
+                     
                         </body>
                         </html>
 
