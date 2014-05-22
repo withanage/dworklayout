@@ -26,6 +26,7 @@
     </head>
     <body>
         <div class="container-fluid">
+            <div id="debug"></div>
             <!-- Static navbar -->
             <div class="navbar navbar-default" role="navigation">
                 <div class="container-fluid">
@@ -232,16 +233,29 @@
                                                         <div class="well">
                                                             <span id="zoom_sliderCurrentSliderValLabel">Zoom level: <span id="zoom_sliderSliderVal">3</span></span>
                                                             <span  class="">&nbsp;&nbsp;&nbsp;</span>
-                                                            <input id="zoom_slider" type="text" data-slider-min="-6" data-slider-max="10" data-slider-step="1" data-slider-value="0"/>
+                                                            <input id="zoom_slider" type="text" data-slider-min="-10" data-slider-max="6" data-slider-step="1" data-slider-value="0"/>
+                                                            
+                                                            <!--
                                                             <span  class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                                                             <span id="rotate_sliderCurrentSliderValLabel">Rotate: <span id="rotate_sliderSliderVal">0</span></span>
-                                                            <input id="rotate_slider" type="text" data-slider-min="-1" data-slider-max="2" data-slider-step="1" data-slider-value="0"/>
+                                                            <input id="rotate_slider" type="text" data-slider-min="0" data-slider-max="2" data-slider-step="1" data-slider-value="0"/>
+                                                            -->
+                                                            <span  class="">&nbsp;&nbsp;&nbsp;</span>
+                                                            <button id ="flipdownleft" type="button" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left"></span></button>
+                                                            <span  class="">&nbsp;&nbsp;&nbsp;</span>
+                                                            <button id ="flipdownup" type="button" class="btn btn-default"><span class="glyphicon glyphicon-arrow-up"></span></button>
+                                                            <span  class="">&nbsp;&nbsp;&nbsp;</span>
+                                                            <button id ="flipdownright" type="button" class="btn btn-default"><span class="glyphicon glyphicon-arrow-right"></span></button>
+                                                            <span  class="">&nbsp;&nbsp;&nbsp;</span>
+                                                            <button id ="flipdowndown" type="button" class="btn btn-default"><span class="glyphicon glyphicon-arrow-down"></span></button>
+
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div id='img_div' style='position:relative; top:0px; left:0px; transform-origin:0 0 ;overflow:auto;'>
                                                     <img id='img' src='http://digi.ub.uni-heidelberg.de/diglitData/image/cpg848/1/008r.jpg'>
-                                                </div>                                           </div>
+                                                </div>                                           
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

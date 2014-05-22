@@ -2,7 +2,8 @@ var scale = 1, angle = 0;
 var zoom_slider = $('#zoom_slider'),
         rotate_slider = $('#rotate_slider'),
         img_div = $('#img_div');
-var img_zoomst = [{width: 587, height: 918, url: "http://digi.ub.uni-heidelberg.de/diglitData/image/cpg848/1/008r.jpg"},
+var img_zoomst = [
+    {width: 587, height: 918, url: "http://digi.ub.uni-heidelberg.de/diglitData/image/cpg848/1/008r.jpg"},
     {width: 746, height: 1166, url: "http://digi.ub.uni-heidelberg.de/diglitData/image/cpg848/2/008r.jpg"},
     {width: 947, height: 1482, url: "http://digi.ub.uni-heidelberg.de/diglitData/image/cpg848/3/008r.jpg"},
     {width: 1192, height: 1864, url: "http://digi.ub.uni-heidelberg.de/diglitData/image/cpg848/4/008r.jpg"}];
@@ -27,12 +28,15 @@ function transform_str(scale, angle) {
     if (angle == 2) {
         transl = "," + (img_width * Math.pow(f, scale)).toFixed(6) + "," + (img_height * Math.pow(f, scale)).toFixed(6);
     }
-    return "matrix("
+    var matrix = "matrix("
             + (+Math.cos(-angle * Math.PI / 2) * Math.pow(f, scale)).toFixed(6) + ","
             + (-Math.sin(-angle * Math.PI / 2) * Math.pow(f, scale)).toFixed(6) + ","
             + (+Math.sin(-angle * Math.PI / 2) * Math.pow(f, scale)).toFixed(6) + ","
             + (+Math.cos(-angle * Math.PI / 2) * Math.pow(f, scale)).toFixed(6)
             + transl + ")";
+    //$('#debug').html(matrix);
+    return matrix;
+    
 }
 $("#zoom_slider").slider();
 $("#zoom_slider").on('slide', function(slideEvt) {
@@ -40,10 +44,36 @@ $("#zoom_slider").on('slide', function(slideEvt) {
     scale = Math.round(slideEvt.value);
     img_div.css("transform", transform_str(scale, angle));
 });
+
+/**
 $("#rotate_slider").slider();
-$("#rotate_slider").on('slide', function(slideEvt) {
-    $("#rotate_sliderSliderVal").text(slideEvt.value);
-    angle = Math.round(slideEvt.value);
+$("#rotate_slider").on('slide', function(slideEvt2) {
+    $("#rotate_sliderSliderVal").text(slideEvt2.value);
+    angle = Math.round(slideEvt2.value);
     img_div.css("transform", transform_str(scale, angle));
 });
+*/
+
+
+$('#flipdownleft').on('click', function (e) {
+ angle = Math.round(-1);
+ img_div.css("transform", transform_str(scale, angle));
+
+});
+$('#flipdownup').on('click', function (e) {
+ angle = Math.round(0);
+ img_div.css("transform", transform_str(scale, angle));
+
+});
+$('#flipdownright').on('click', function (e) {
+ angle = Math.round(1);
+ img_div.css("transform", transform_str(scale, angle));
+
+});
+$('#flipdowndown').on('click', function (e) {
+ angle = Math.round(2);
+ img_div.css("transform", transform_str(scale, angle));
+
+});
+    
 
